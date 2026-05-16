@@ -3,41 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VORTEX STUDIO</title>
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/JhrQQYV2/E367-C7-D2-4750-4524-ADD5-B9-A8-DA953734.png">
+    <title>VORTEX STUDIO | تحت الصيانة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #0d0118; color: #fff; font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .logo { font-size: 2.2rem; font-weight: bold; color: #d8b4fe; text-shadow: 0 0 15px #a855f7; margin-bottom: 25px; }
-        .card { background: rgba(255, 255, 255, 0.05); border: 2px solid #a855f7; border-radius: 20px; padding: 20px; margin-bottom: 20px; box-shadow: 0 0 20px rgba(168, 85, 247, 0.2); }
-        .btn { display: block; padding: 15px; margin: 10px 0; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; }
-        .btn-ios { background: #a855f7; color: #fff; box-shadow: 0 0 10px #a855f7; }
-        .btn-android { border: 2px solid #a855f7; color: #d8b4fe; }
-        .btn-discord { background: #5865F2; color: #fff; margin-top: 20px; box-shadow: 0 0 15px #5865F2; }
-        .alert { color: #ff4444; font-size: 12px; border: 1px solid #ff4444; padding: 10px; border-radius: 10px; }
+        body { 
+            background: #0d0118; 
+            color: #fff; 
+            font-family: sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .maintenance-container {
+            padding: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #a855f7;
+            box-shadow: 0 0 10px #a855f7;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d8b4fe;
+            text-shadow: 0 0 15px #a855f7;
+        }
+
+        .status-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #a855f7;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 0 auto;
+            max-width: 400px;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+        }
+
+        .maintenance-icon {
+            font-size: 3rem;
+            color: #a855f7;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .btn-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #5865F2;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 25px;
+            box-shadow: 0 0 15px #5865F2;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <div class="logo">VORTEX STUDIO</div>
+    <div class="maintenance-container">
+        <div class="logo-section">
+            <img src="https://i.postimg.cc/JhrQQYV2/E367-C7-D2-4750-4524-ADD5-B9-A8-DA953734.png" alt="Vortex Logo" class="logo-img">
+            <div class="logo-text">VORTEX STUDIO</div>
+        </div>
 
-    <div class="card">
-        <h2 style="margin:0;">DELTA EXECUTOR</h2>
-        <a href="itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist" class="btn btn-ios">تثبيت للايفون (iOS)</a>
-        <a href="https://www.mediafire.com/file/v6sogoz9kn9iduw/Delta-2.716.875.apk/file" class="btn btn-android">تحميل للاندرويد (APK)</a>
-    </div>
+        <div class="status-card">
+            <i class="fas fa-tools maintenance-icon"></i>
+            <h2 style="margin: 0 0 10px 0;">الموقع تحت الصيانة</h2>
+            <p style="color: #aaa; line-height: 1.6;">
+                نعمل حالياً على إغلاق بعض الأخطاء وتحديث الروابط لضمان أفضل تجربة لكم. سنعود قريباً!
+            </p>
+            
+            <a href="https://discord.gg/ghJ3NcvsJs" class="btn-discord">
+                <i class="fab fa-discord"></i> تابع التحديثات في الديسكورد
+            </a>
+        </div>
 
-    <div class="card" style="border-color: #7e22ce;">
-        <h2 style="margin:0;">SKIBX EXECUTOR</h2>
-        <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/pyzvF7/pyzvF7.plist" class="btn btn-ios" style="background:#7e22ce;">تثبيت للايفون (iOS)</a>
-    </div>
-
-    <a href="https://discord.gg/ghJ3NcvsJs" class="btn btn-discord">
-        <i class="fab fa-discord"></i> سيرفر الديسكورد
-    </a>
-
-    <div class="alert" style="margin-top:20px;">
-        ⚠️ للايفون: لا تنسى "الوثوق" بالشهادة من الإعدادات.
+        <div class="copyright">
+            جميع الحقوق محفوظة © 2026 لـ <strong>VORTEX STUDIO</strong>
+        </div>
     </div>
 
 </body>
