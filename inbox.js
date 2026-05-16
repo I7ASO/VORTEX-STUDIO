@@ -7,7 +7,7 @@ function copyScript() {
     // عملية النسخ للحافظة
     navigator.clipboard.writeText(scriptText).then(() => {
         // إظهار تنبيه فخم عند النسخ
-        alert("✅ تم نسخ سكربت VORTEX بنجاح! ضعه في Executor الخاص بك.");
+        alert("تم نسخ السكربت");
     }).catch(err => {
         console.error('فشل النسخ: ', err);
     });
