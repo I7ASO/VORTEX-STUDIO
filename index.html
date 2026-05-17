@@ -7,71 +7,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --p: #a855f7; --bg: #0d0118; --c: rgba(255, 255, 255, 0.05); }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; text-align: center; overflow-x: hidden; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; text-align: center; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
         
         .header { padding: 30px; display: flex; align-items: center; justify-content: center; gap: 15px; }
-        .logo-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--p); box-shadow: 0 0 15px var(--p); }
+        .logo-img { width: 65px; height: 65px; border-radius: 50%; border: 2px solid var(--p); box-shadow: 0 0 15px var(--p); object-fit: cover; }
         
-        /* القائمة العلوية */
         .nav-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tab-btn { background: var(--c); border: 1px solid var(--p); color: #fff; padding: 8px 15px; border-radius: 12px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .tab-btn { background: var(--c); border: 1px solid var(--p); color: #fff; padding: 10px 18px; border-radius: 12px; cursor: pointer; transition: 0.3s; font-weight: bold; }
         .tab-btn.active { background: var(--p); box-shadow: 0 0 15px var(--p); }
 
-        .container { max-width: 500px; margin: 0 auto; padding: 10px; }
-        
-        /* نظام الصفحات */
-        .page { display: none; animation: fadeIn 0.5s forwards; }
+        .container { max-width: 500px; margin: 0 auto; padding: 10px; flex: 1; }
+        .page { display: none; animation: fadeIn 0.4s forwards; }
         .page.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ستايل البطاقات */
         .card { background: var(--c); border-radius: 25px; padding: 25px; margin-bottom: 15px; border: 1px solid rgba(168, 85, 247, 0.2); backdrop-filter: blur(10px); }
         
-        .btn { display: block; padding: 12px; margin-top: 10px; border-radius: 12px; text-decoration: none; font-weight: bold; color: #fff; transition: 0.3s; }
+        .btn { display: block; padding: 12px; margin-top: 10px; border-radius: 12px; text-decoration: none; font-weight: bold; color: #fff; transition: 0.3s; border: none; cursor: pointer; }
         .btn-dl { background: var(--p); box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3); }
-        .btn-sub { border: 1px solid var(--p); color: var(--p); font-size: 0.85rem; }
-        .btn-discord { background: #5865F2; margin-top: 20px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
+        .btn-sub { border: 1px solid var(--p); color: var(--p); background: transparent; }
+        .btn-discord { background: #5865F2; margin-top: 20px; }
 
-        .feature-box { background: rgba(168, 85, 247, 0.1); padding: 15px; border-radius: 15px; margin-top: 10px; border-right: 4px solid var(--p); text-align: right; }
-        .feature-box i { color: var(--p); margin-left: 10px; }
+        .footer { padding: 20px; color: #666; font-size: 0.85rem; border-top: 1px solid rgba(168, 85, 247, 0.1); margin-top: 20px; }
+        .feature-box { background: rgba(168, 85, 247, 0.08); padding: 12px; border-radius: 12px; margin-top: 10px; border-right: 4px solid var(--p); text-align: right; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <img src="https://i.postimg.cc/vmLMQq17/IMG-2992.png" class="logo-img">
-        <h1 style="text-shadow: 0 0 10px var(--p); font-size: 1.8rem;">VORTEX</h1>
+        <h1 style="text-shadow: 0 0 15px var(--p); font-size: 1.6rem; letter-spacing: 1px;">VORTEX STUDIO</h1>
     </div>
 
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="openPage('home')"><i class="fas fa-home"></i> الرئيسية</button>
-        <button class="tab-btn" onclick="openPage('ios')"><i class="fab fa-apple"></i> iOS</button>
-        <button class="tab-btn" onclick="openPage('android')"><i class="fab fa-android"></i> Android</button>
-        <button class="tab-btn" onclick="openPage('pc')"><i class="fas fa-laptop"></i> PC</button>
+        <button class="tab-btn active" onclick="openPage('home')">الرئيسية</button>
+        <button class="tab-btn" onclick="openPage('ios')">iPhone</button>
+        <button class="tab-btn" onclick="openPage('android')">Android</button>
+        <button class="tab-btn" onclick="openPage('pc')">PC</button>
     </div>
 
     <div class="container">
-        
         <div id="home" class="page active">
             <div class="card">
-                <h2 style="color: var(--p);">مرحباً بك في VORTEX</h2>
-                <p style="color: #ccc; font-size: 0.9rem;">أقوى منصة لتوفير سكربتات وهاكات روبلوكس لجميع الأجهزة بحماية عالية.</p>
-                
-                <div class="feature-box"><i class="fas fa-check-circle"></i> روابط تحميل مباشرة</div>
-                <div class="feature-box"><i class="fas fa-shield-alt"></i> حماية ضد الباند</div>
-                <div class="feature-box"><i class="fas fa-sync"></i> تحديثات مستمرة</div>
+                <h2 style="color: var(--p); margin-bottom: 10px;">VORTEX STUDIO</h2>
+                <p style="color: #aaa; font-size: 0.9rem; line-height: 1.6;">الوجهة الأولى والموثوقة لتحميل أدوات وهاكات روبلوكس. نحن نهتم بالأمان والجودة دائماً.</p>
+                <div class="feature-box"><i class="fas fa-bolt" style="color:var(--p); margin-left:8px;"></i> سرعة في التحديثات</div>
+                <div class="feature-box"><i class="fas fa-lock" style="color:var(--p); margin-left:8px;"></i> روابط آمنة 100%</div>
             </div>
         </div>
 
         <div id="ios" class="page">
             <div class="card">
-                <h3>Delta Executor</h3>
-                <a href="itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist" class="btn btn-dl">تثبيت Global</a>
-                <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/jcLE8U/jcLE8U.plist" class="btn btn-sub">تثبيت VNG</a>
-                
-                <h3 style="margin-top:25px;">Skibx (No Key)</h3>
-                <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/pyzvF7/pyzvF7.plist" class="btn btn-dl" style="background: linear-gradient(90deg, #a855f7, #6a1b9a);">تثبيت مباشر</a>
+                <h3 style="margin-bottom: 15px;">Delta Executor</h3>
+                <a href="itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist" class="btn btn-dl">تثبيت (النسخة العالمية)</a>
+                <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/jcLE8U/jcLE8U.plist" class="btn btn-sub">تثبيت (نسخة VNG)</a>
             </div>
         </div>
 
@@ -88,26 +78,25 @@
         <div id="pc" class="page">
             <div class="card">
                 <h3>Xeno Executor</h3>
-                <p style="color: #aaa; font-size: 0.8rem;">أفضل أداء للكمبيوتر بدون تعليق</p>
-                <a href="https://www.mediafire.com/file/2ge30y7r9ufi9gt/Xeno-v1.3.30.zip/file" class="btn btn-dl">تحميل للكمبيوتر</a>
+                <p style="color: #888; font-size: 0.8rem; margin-bottom: 15px;">الخيار الأفضل لمستخدمي الكمبيوتر</p>
+                <a href="https://www.mediafire.com/file/2ge30y7r9ufi9gt/Xeno-v1.3.30.zip/file" class="btn btn-dl">تحميل مباشر للكمبيوتر</a>
             </div>
         </div>
 
         <a href="https://discord.gg/ghJ3NcvsJs" class="btn btn-discord">
-            <i class="fab fa-discord"></i> انضم لسيرفر الديسكورد
+            <i class="fab fa-discord"></i> ديسكورد VORTEX STUDIO
         </a>
+    </div>
+
+    <div class="footer">
+        جميع الحقوق محفوظة لـ <strong>VORTEX STUDIO</strong> © 2026
     </div>
 
     <script>
         function openPage(pageId) {
-            // إخفاء كل الصفحات
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // إزالة الحالة النشطة من الأزرار
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            
-            // إظهار الصفحة المطلوبة
             document.getElementById(pageId).classList.add('active');
-            // تفعيل الزر المضغوط
             event.currentTarget.classList.add('active');
         }
     </script>
