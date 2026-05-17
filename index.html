@@ -3,77 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VORTEX STUDIO</title>
+    <title>VORTEX STUDIO | الرئيسية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --p: #a855f7; --bg: #0d0118; --c: rgba(255, 255, 255, 0.05); }
-        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; text-align: center; }
+        body { background: var(--bg); color: #fff; font-family: sans-serif; margin: 0; text-align: center; overflow-x: hidden; }
         
         .header { padding: 30px; display: flex; align-items: center; justify-content: center; gap: 15px; }
-        .logo-img { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--p); box-shadow: 0 0 15px var(--p); }
+        .logo-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--p); box-shadow: 0 0 15px var(--p); }
+        
+        .nav-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab-btn { background: var(--c); border: 1px solid var(--p); color: #fff; padding: 8px 15px; border-radius: 12px; cursor: pointer; transition: 0.3s; font-size: 0.9rem; }
+        .tab-btn.active { background: var(--p); box-shadow: 0 0 15px var(--p); }
 
-        /* أزرار التنقل */
-        .nav-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
-        .tab-btn { background: var(--c); border: 1px solid var(--p); color: #fff; padding: 12px 20px; border-radius: 15px; cursor: pointer; transition: 0.3s; font-weight: bold; }
-        .tab-btn.active { background: var(--p); box-shadow: 0 0 20px var(--p); }
-
-        .container { max-width: 500px; margin: 0 auto; padding: 15px; }
-        .page { display: none; animation: fadeIn 0.4s forwards; }
+        .container { max-width: 500px; margin: 0 auto; padding: 10px; }
+        
+        .page { display: none; animation: fadeIn 0.5s forwards; }
         .page.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* بطاقات الهاكات مع الشعارات */
-        .hack-card { background: var(--c); border-radius: 25px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(168, 85, 247, 0.2); }
-        .hack-icon { width: 80px; height: 80px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--p); }
-        
-        .btn { display: block; padding: 14px; margin-top: 10px; border-radius: 12px; text-decoration: none; font-weight: bold; color: #fff; transition: 0.3s; border: none; }
-        .btn-dl { background: var(--p); }
-        .btn-vng { border: 1px solid var(--p); color: var(--p); margin-top: 8px; }
-        .btn-discord { background: #5865F2; margin-top: 30px; }
+        .card { background: var(--c); border-radius: 25px; padding: 25px; margin-bottom: 15px; border: 1px solid rgba(168, 85, 247, 0.2); backdrop-filter: blur(10px); }
+        .hack-icon { width: 70px; height: 70px; border-radius: 15px; margin-bottom: 10px; border: 1px solid var(--p); }
 
-        .footer { padding: 30px; color: #555; font-size: 0.8rem; }
+        .btn { display: block; padding: 12px; margin-top: 10px; border-radius: 12px; text-decoration: none; font-weight: bold; color: #fff; transition: 0.3s; }
+        .btn-dl { background: var(--p); box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3); }
+        .btn-sub { border: 1px solid var(--p); color: var(--p); font-size: 0.85rem; }
+        .btn-discord { background: #5865F2; margin-top: 20px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3); }
+
+        .feature-box { background: rgba(168, 85, 247, 0.1); padding: 15px; border-radius: 15px; margin-top: 10px; border-right: 4px solid var(--p); text-align: right; }
+        .feature-box i { color: var(--p); margin-left: 10px; }
+        .footer { padding: 20px; color: #555; font-size: 0.8rem; margin-top: 20px; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <img src="https://i.postimg.cc/vmLMQq17/IMG-2992.png" class="logo-img">
-        <h1 style="text-shadow: 0 0 15px var(--p);">VORTEX STUDIO</h1>
+        <h1 style="text-shadow: 0 0 10px var(--p); font-size: 1.8rem;">VORTEX STUDIO</h1>
     </div>
 
     <div class="nav-tabs">
-        <button class="tab-btn active" onclick="openPage('home')">الرئيسية</button>
-        <button class="tab-btn" onclick="openPage('ios')">iPhone</button>
-        <button class="tab-btn" onclick="openPage('android')">Android</button>
-        <button class="tab-btn" onclick="openPage('pc')">PC</button>
+        <button class="tab-btn active" onclick="openPage('home')"><i class="fas fa-home"></i> الرئيسية</button>
+        <button class="tab-btn" onclick="openPage('ios')"><i class="fab fa-apple"></i> iOS</button>
+        <button class="tab-btn" onclick="openPage('android')"><i class="fab fa-android"></i> Android</button>
+        <button class="tab-btn" onclick="openPage('pc')"><i class="fas fa-laptop"></i> PC</button>
     </div>
 
     <div class="container">
         
         <div id="home" class="page active">
-            <div class="hack-card">
-                <h2 style="color: var(--p);">مرحباً بك</h2>
-                <p>هنا تجد جميع هاكات روبلوكس المحدثة والشغالة.</p>
+            <div class="card">
+                <h2 style="color: var(--p);">مرحباً بك في VORTEX STUDIO</h2>
+                <p style="color: #ccc; font-size: 0.9rem;">أقوى منصة لتوفير سكربتات وهاكات روبلوكس لجميع الأجهزة بحماية عالية.</p>
+                <div class="feature-box"><i class="fas fa-check-circle"></i> روابط تحميل مباشرة</div>
+                <div class="feature-box"><i class="fas fa-shield-alt"></i> حماية ضد الباند</div>
+                <div class="feature-box"><i class="fas fa-sync"></i> تحديثات مستمرة</div>
             </div>
         </div>
 
         <div id="ios" class="page">
-            <div class="hack-card">
+            <div class="card">
                 <img src="https://i.postimg.cc/JhrQQYV2/E367-C7-D2-4750-4524-ADD5-B9-A8-DA953734.png" class="hack-icon">
                 <h3>Delta Executor</h3>
                 <a href="itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist" class="btn btn-dl">تثبيت النسخة العادية</a>
-                <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/jcLE8U/jcLE8U.plist" class="btn btn-vng">تثبيت نسخة VNG</a>
+                <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/jcLE8U/jcLE8U.plist" class="btn btn-sub">تثبيت نسخة VNG</a>
             </div>
         </div>
 
         <div id="android" class="page">
-            <div class="hack-card">
+            <div class="card">
                 <img src="https://i.postimg.cc/T10Hb1Yr/IMG-0211.jpg" class="hack-icon">
                 <h3>Arceus X Neo</h3>
                 <a href="https://www.mediafire.com/file/nli72kkxnkrh4g7/Roblox.-.Arceus.X.v5.1.4.2.apk/file" class="btn btn-dl">تحميل النسخة العادية</a>
             </div>
-            <div class="hack-card">
+            <div class="card">
                 <img src="https://i.postimg.cc/vZgLmbJg/IMG-0210.webp" class="hack-icon">
                 <h3>Codex</h3>
                 <a href="https://www.mediafire.com/file/4cadggxj7k5vktx/Codex+v2.716.apk/file" class="btn btn-dl">تحميل النسخة العادية</a>
@@ -81,20 +85,21 @@
         </div>
 
         <div id="pc" class="page">
-            <div class="hack-card">
+            <div class="card">
                 <img src="https://i.postimg.cc/j5ygNhNZ/AD101609-C2-A8-4-E25-A2-E0-FEDFA8-C740-CF.png" class="hack-icon">
                 <h3>Xeno Executor</h3>
+                <p style="color: #aaa; font-size: 0.8rem;">أفضل أداء للكمبيوتر بدون تعليق</p>
                 <a href="https://www.mediafire.com/file/2ge30y7r9ufi9gt/Xeno-v1.3.30.zip/file" class="btn btn-dl">تحميل للكمبيوتر</a>
             </div>
         </div>
 
         <a href="https://discord.gg/ghJ3NcvsJs" class="btn btn-discord">
-            <i class="fab fa-discord"></i> ديسكورد VORTEX STUDIO
+            <i class="fab fa-discord"></i> انضم لسيرفر VORTEX STUDIO
         </a>
-    </div>
 
-    <div class="footer">
-        حقوق النشر محفوظة لـ VORTEX STUDIO © 2026
+        <div class="footer">
+            حقوق النشر محفوظة لـ VORTEX STUDIO © 2026
+        </div>
     </div>
 
     <script>
@@ -102,7 +107,7 @@
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            if(event) event.currentTarget.classList.add('active');
         }
     </script>
 </body>
