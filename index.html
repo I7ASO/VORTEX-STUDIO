@@ -3,135 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VORTEX STUDIO</title>
+    <title>VORTEX STUDIO | الرئيسية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            background: #0d0118; 
-            background-image: radial-gradient(circle at center, #1a0233 0%, #0d0118 100%);
-            color: #fff; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+        :root {
+            --primary-color: #a855f7;
+            --bg-dark: #0d0118;
+            --card-bg: rgba(255, 255, 255, 0.03);
         }
 
-        .logo-section {
+        body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at center, #1a0233 0%, #0d0118 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* رأس الصفحة المطور */
+        .header-section {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 20px;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
+            margin-top: 20px;
         }
 
         .logo-img {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            border: 3px solid #a855f7;
-            box-shadow: 0 0 20px #a855f7;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
             object-fit: cover;
         }
 
         .logo-text {
-            font-size: 2.8rem;
-            font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: 900;
             color: #d8b4fe;
-            text-shadow: 0 0 20px #a855f7;
+            text-shadow: 0 0 15px var(--primary-color);
             letter-spacing: 1px;
         }
 
-        .maintenance-card {
-            background: rgba(20, 1, 40, 0.6);
+        /* حاوية البطاقات */
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card {
+            background: var(--card-bg);
             border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 30px;
-            padding: 40px;
-            margin: 0 auto;
-            max-width: 450px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .maintenance-icon {
-            font-size: 3.5rem;
-            color: #a855f7;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px #a855f7;
-        }
-
-        .status-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .status-desc {
-            color: #aaa;
-            line-height: 1.6;
-            font-size: 1rem;
+            border-radius: 25px;
+            padding: 25px;
             margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .discord-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #5865F2;
+        .card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
             color: #fff;
-            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-desc {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* الأزرار */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px;
+            margin: 10px 0;
             border-radius: 15px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
             transition: 0.3s;
         }
 
-        .discord-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(88, 101, 242, 0.6);
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 0 15px var(--primary-color);
         }
 
-        .copyright {
-            position: absolute;
-            bottom: 30px;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.02);
+        }
+
+        /* زر الديسكورد السفلي */
+        .btn-discord {
+            background: #5865F2;
+            color: #fff;
             width: 100%;
-            color: #555;
-            font-size: 0.85rem;
+            box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
         }
 
-        .github-link {
-            color: #a855f7;
-            text-decoration: none;
+        .footer-info {
+            margin-top: 30px;
+            color: #444;
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="maintenance-container">
-        <div class="logo-section">
-            <img src="https://i.postimg.cc/hPz1NNw3/ACFF0642-2A46-488D-BB00-B244DA5DD65B.png" alt="Vortex Logo" class="logo-img">
-            <div class="logo-text">VORTEX STUDIO</div>
-        </div>
+    <div class="header-section">
+        <img src="https://i.postimg.cc/vmLMQq17/IMG-2992.png" alt="Vortex" class="logo-img">
+        <div class="logo-text">VORTEX</div>
+    </div>
 
-        <div class="maintenance-card">
-            <i class="fas fa-tools maintenance-icon"></i>
-            <h2 class="status-title">الموقع تحت الصيانة</h2>
-            <p class="status-desc">
-                نعمل حالياً على تحديث الروابط وإغلاق بعض الأخطاء التقنية لضمان حماية أفضل. سنعود قريباً بكل جديد!
-            </p>
+    <div class="container">
+        
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-bolt" style="color: #ff0;"></i> DELTA EXECUTOR
+            </div>
+            <p class="card-desc">الإصدار الأحدث والأكثر أماناً، يدعم كافة السكربتات بدون كراش.</p>
             
-            <a href="https://discord.gg/ghJ3NcvsJs" class="discord-btn">
-                <i class="fab fa-discord"></i> سيرفر الديسكورد
+            <a href="itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist" class="btn btn-primary">
+                <i class="fab fa-apple"></i> تثبيت مباشر (iOS)
+            </a>
+            <a href="https://www.mediafire.com/file/v6sogoz9kn9iduw/Delta-2.716.875.apk/file" class="btn btn-outline">
+                <i class="fab fa-android"></i> تحميل للأندرويد (APK)
             </a>
         </div>
 
-        <div class="copyright">
-            <span class="github-link">i7aso.github.io</span> | جميع الحقوق محفوظة لـ <strong>VORTEX STUDIO</strong> © 2026
+        <div class="card" style="border-color: #7e22ce;">
+            <div class="card-title">
+                <i class="fas fa-key-slash" style="color: #a855f7;"></i> SKIBX (NO KEY)
+            </div>
+            <p class="card-desc">هاك سريع جداً للأيفون ولا يتطلب مفتاح تشغيل.</p>
+            
+            <a href="itms-services://?action=download-manifest&url=https://www.installonair.com/storage/ipaz/pyzvF7/pyzvF7.plist" class="btn" style="background: #7e22ce; color: #fff;">
+                <i class="fab fa-apple"></i> تثبيت مباشر (iOS)
+            </a>
         </div>
+
+        <a href="https://discord.gg/ghJ3NcvsJs" class="btn btn-discord">
+            <i class="fab fa-discord"></i> انضم لسيرفر الديسكورد
+        </a>
+
+    </div>
+
+    <div class="footer-info">
+        i7aso.github.io | VORTEX STUDIO © 2026
     </div>
 
 </body>
